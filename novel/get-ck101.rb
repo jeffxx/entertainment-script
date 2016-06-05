@@ -2,8 +2,10 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
-
-raise "Usage: $0 id" unless ARGV[0].to_i > 0 
+if  ARGV[0].to_i <= 0 
+    puts "Usage: #{$0} threadid" 
+    exit
+end
 
 
 page = Nokogiri::HTML(open("http://ck101.com/thread-"+ARGV[0]+"-1-1.html"))   
